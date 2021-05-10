@@ -133,6 +133,11 @@ export const rootRouterConfig: Routes = [
         data: { title: 'Orders', breadcrumb: 'Orders'}
       },
       {
+        path: 'tournaments',
+        loadChildren: () => import('./views/pages/tournaments/tournaments.module').then(m => m.TournamentsModule),
+        data: { title: 'Tournaments', breadcrumb: 'Tournaments'}
+      },
+      {
         path: 'page-layouts',
         loadChildren: () => import('./views/page-layouts/page-layouts.module').then(m => m.PageLayoutsModule)
       },

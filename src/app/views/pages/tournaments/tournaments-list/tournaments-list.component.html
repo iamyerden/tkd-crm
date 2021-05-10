@@ -1,0 +1,23 @@
+<mat-toolbar fxLayoutGap="5px">
+  <div fxLayout="row" fxFlex="1 1 0%" fxLayoutAlign="end center">
+    <button mat-raised-button color="primary" routerLink="/tournaments/add">
+      Создать категорию
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-table [dataSource]="tournaments" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>Номер</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Название</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row style="cursor: pointer" *matRowDef="let row; columns: displayedColumns;"
+           [routerLink]="['/tournaments/list/', row.id]"></mat-row>
+</mat-table>
